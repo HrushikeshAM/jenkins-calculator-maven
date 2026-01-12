@@ -33,7 +33,7 @@ jobs:
     - name: Maven Test
       run: mvn test
 
-    - name: Maven Package
+    - name: Maven Package (Create JAR)
       run: mvn package
 
     - name: Maven Verify
@@ -41,3 +41,9 @@ jobs:
 
     - name: Maven Install
       run: mvn install
+
+    - name: Deploy JAR (Upload Artifact)
+      uses: actions/upload-artifact@v4
+      with:
+        name: calculator-jar
+        path: target/*.jar
